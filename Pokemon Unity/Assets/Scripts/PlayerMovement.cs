@@ -1157,8 +1157,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (accessedMapSettings.getEncounterList(encounterLocation).Length > 0)
         {
-            if (Random.value <= accessedMapSettings.getEncounterProbability())
+          
+            if (Polanco() <= accessedMapSettings.getEncounterProbability())
             {
+               
                 if (setCheckBusyWith(Scene.main.Battle.gameObject))
                 {
                     BgmHandler.main.PlayOverlay(Scene.main.Battle.defaultWildBGM,
@@ -1185,7 +1187,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void playClip(AudioClip clip)
+     public float Polanco()
+    {
+        float de;
+        de = Random.value;
+        return de;
+    }
+
+private void playClip(AudioClip clip)
     {
         PlayerAudio.clip = clip;
         PlayerAudio.volume = PlayerPrefs.GetFloat("sfxVolume");
